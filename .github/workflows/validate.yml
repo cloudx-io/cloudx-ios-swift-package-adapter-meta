@@ -1,0 +1,43 @@
+name: Validate
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: read
+
+jobs:
+  package:
+    runs-on: macos-15
+    steps:
+      - uses: actions/checkout@v5
+      - name: Select Xcode 16
+        run: sudo xcode-select --switch /Applications/Xcode_16.4.app
+      - name: Validate manifest
+        run: swift package dump-package
+      - name: Resolve dependencies
+        run: swift package resolve
+      - name: Build and test iOS consumers
+        run: |
+          destination=$(xcrun simctl list devices available --json | \
+            jq -r '[.devices | to_entries[] | select(.key | startswith("com.apple.CoreSimulator.SimRuntime.iOS-")) | .value[] | select(.isAvailable)][0].udid // empty')
+          if [[ -n "$destination" ]]; then
+            xcodebuild test \
+              -scheme CloudXMetaAdapter \
+              -destination "id=$destination" \
+              CODE_SIGNING_ALLOWED=NO
+          else
+            xcodebuild build-for-testing \
+              -scheme CloudXMetaAdapter \
+              -destination 'generic/platform=iOS Simulator' \
+              CODE_SIGNING_ALLOWED=NO
+          fi
+      - name: Verify artifact checksum
+        run: |
+          curl --fail --location --output /tmp/CloudXMetaAdapter.xcframework.zip \
+            https://github.com/cloudx-io/cloudx-ios/releases/download/adapter-meta/6.21.1.0/CloudXMetaAdapter.xcframework.zip
+          test "$(swift package compute-checksum /tmp/CloudXMetaAdapter.xcframework.zip)" = \
+            "78fa4112dea217b411352389ba28baa0360242c1ab118512b3166373b43a25e8"
