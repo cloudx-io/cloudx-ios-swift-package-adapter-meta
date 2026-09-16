@@ -5,7 +5,7 @@ import PackageDescription
 let package = Package(
     name: "CloudXMetaAdapter",
     platforms: [
-        .iOS(.v13),
+        .iOS(.v15),
     ],
     products: [
         .library(
@@ -20,14 +20,14 @@ let package = Package(
         ),
         .package(
             url: "https://github.com/facebook/FBAudienceNetwork.git",
-            exact: "6.21.1"
+            exact: "6.22.0"
         ),
     ],
     targets: [
         .binaryTarget(
             name: "CloudXMetaAdapter",
-            url: "https://github.com/cloudx-io/cloudx-ios/releases/download/adapter-meta/6.21.1.0/CloudXMetaAdapter.xcframework.zip",
-            checksum: "78fa4112dea217b411352389ba28baa0360242c1ab118512b3166373b43a25e8"
+            url: "https://github.com/cloudx-io/cloudx-ios/releases/download/adapter-meta/6.22.0.0/CloudXMetaAdapter.xcframework.zip",
+            checksum: "870bd1d354a45edfb57790cbb70a7c84be38e24ceeee0fa7eb2d379797243f0e"
         ),
         .target(
             name: "CloudXMetaAdapterPackage",

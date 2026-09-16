@@ -38,6 +38,6 @@ jobs:
       - name: Verify artifact checksum
         run: |
           curl --fail --location --output /tmp/CloudXMetaAdapter.xcframework.zip \
-            https://github.com/cloudx-io/cloudx-ios/releases/download/adapter-meta/6.21.1.0/CloudXMetaAdapter.xcframework.zip
+            https://github.com/cloudx-io/cloudx-ios/releases/download/adapter-meta/6.22.0.0/CloudXMetaAdapter.xcframework.zip
           test "$(swift package compute-checksum /tmp/CloudXMetaAdapter.xcframework.zip)" = \
-            "78fa4112dea217b411352389ba28baa0360242c1ab118512b3166373b43a25e8"
+            "870bd1d354a45edfb57790cbb70a7c84be38e24ceeee0fa7eb2d379797243f0e"

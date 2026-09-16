@@ -8,7 +8,7 @@
 @implementation CloudXMetaAdapterObjCTests
 
 - (void)testAdapterIsLinkedAndRegistered {
-    XCTAssertEqualObjects(CLXMetaAdapterVersion, @"6.21.1.0");
+    XCTAssertEqualObjects(CLXMetaAdapterVersion, @"6.22.0.0");
     XCTAssertNotNil(NSClassFromString(@"CLXMetaInitializer"));
 }
 
