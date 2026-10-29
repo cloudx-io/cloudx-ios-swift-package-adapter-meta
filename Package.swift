@@ -20,14 +20,14 @@ let package = Package(
         ),
         .package(
             url: "https://github.com/facebook/FBAudienceNetwork.git",
-            exact: "6.22.0"
+            exact: "6.22.1"
         ),
     ],
     targets: [
         .binaryTarget(
             name: "CloudXMetaAdapter",
-            url: "https://github.com/cloudx-io/cloudx-ios-swift-package-adapter-meta/releases/download/binary/6220001.0.0/CloudXMetaAdapter.xcframework.zip",
-            checksum: "1ecdd97958c76b5ca18dc7ca4c96311f9af1e4a7a29c3cf7207247d90c974415"
+            url: "https://github.com/cloudx-io/cloudx-ios-swift-package-adapter-meta/releases/download/binary/6220100.0.0/CloudXMetaAdapter.xcframework.zip",
+            checksum: "11ae23142527c00d78ea4d85cc79bd84be76ebb8c97899fc0a4da6ee81ec7121"
         ),
         .target(
             name: "CloudXMetaAdapterPackage",
