@@ -24,6 +24,7 @@ flag to retain the adapter registration code.
 
 | Package version | CloudX adapter | Meta Audience Network SDK |
 | --- | --- | --- |
+| `6220100.0.0` | `6.22.1.0` | `6.22.1` |
 | `6220001.0.0` | `6.22.0.1` | `6.22.0` |
 | `6220000.0.0` | `6.22.0.0` | `6.22.0` |
 | `6210100.0.0` | `6.21.1.0` | `6.21.1` |
